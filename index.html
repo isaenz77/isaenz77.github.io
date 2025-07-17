@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inmobiliaria Chapa Inmuebles</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-blue-700 text-white py-6 shadow-md">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold">Inmobiliaria Chapa Inmuebles</h1>
+      <p class="text-sm">Compra, Venta y Renta de Inmuebles en el Área Metropolitana de N.L.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-10">
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Propiedades Destacadas</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://via.placeholder.com/400x250" alt="Propiedad 1" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-xl mb-2">Casa en Renta - Zona Acapulco</h3>
+            <p class="text-sm mb-2">3 recámaras, 2 baños, cochera doble</p>
+            <p class="text-blue-700 font-semibold">$12,000 MXN / mes</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://via.placeholder.com/400x250" alt="Propiedad 2" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-xl mb-2">Terreno en Venta - 500 m²</h3>
+            <p class="text-sm mb-2">Ideal para bodega o desarrollo comercial</p>
+            <p class="text-blue-700 font-semibold">$3,500,000 MXN</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://via.placeholder.com/400x250" alt="Propiedad 3" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-xl mb-2">Bodega en Renta - 1,000 m²</h3>
+            <p class="text-sm mb-2">A una cuadra de Miguel Alemán</p>
+            <p class="text-blue-700 font-semibold">$70,000 MXN / mes</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://via.placeholder.com/400x250" alt="Terreno en Renta" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-xl mb-2">Terreno en Renta - Centroamérica, Guadalupe NL</h3>
+            <p class="text-sm mb-2">1200 m² en Av. Antiguo Camino a Huinalá, casi esquina con Av. Guadalajara. Disponible todo o en partes.</p>
+            <p class="text-blue-700 font-semibold">$50 MXN / m²</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center">
+        <a href="#formulario" class="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition">Agendar Cita</a>
+      </div>
+    </section>
+
+    <section id="formulario" class="bg-white rounded-xl p-6 shadow-md mb-10">
+      <h2 class="text-xl font-semibold mb-4">Contáctanos</h2>
+      <form action="https://formspree.io/f/mwkglzdk" method="POST" class="grid gap-4">
+        <input type="text" name="nombre" placeholder="Nombre" class="border p-2 rounded" required>
+        <input type="email" name="email" placeholder="Correo electrónico" class="border p-2 rounded" required>
+        <textarea name="mensaje" placeholder="Mensaje" rows="4" class="border p-2 rounded" required></textarea>
+        <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Enviar</button>
+      </form>
+      <div class="mt-6 text-sm">
+        <p>O contáctanos directamente por WhatsApp:</p>
+        <a href="https://wa.me/5218112345678" target="_blank" class="text-green-600 underline">Enviar mensaje por WhatsApp</a>
+      </div>
+      <div class="mt-4">
+        <iframe src="https://www.google.com/maps?q=av+acapulco,+guadalupe+NL&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center py-4">
+    <p>&copy; 2025 Inmobiliaria Chapa Inmuebles. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
