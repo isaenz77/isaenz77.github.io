@@ -25,12 +25,17 @@
             <p class="text-sm mb-2">Renta mensual: Planta Baja $8,500 + IVA | Planta Alta $6,500 + IVA</p>
             <p class="text-sm mb-2">Locales de 4 mts de frente por 15 de fondo.</p>
             <p class="text-sm mb-2">Dirección: Av Guadalajara 201, Col. Centroamérica, Guadalupe, NL</p>
-            <div class="grid grid-cols-2 gap-2 mt-4">
-              <img src="https://via.placeholder.com/200x150?text=Local+1" alt="Local 1" class="rounded">
-              <img src="https://via.placeholder.com/200x150?text=Local+2" alt="Local 2" class="rounded">
-              <img src="https://via.placeholder.com/200x150?text=Local+3" alt="Local 3" class="rounded">
-              <img src="https://via.placeholder.com/200x150?text=Local+4" alt="Local 4" class="rounded">
-            </div>
+            <div class="mt-4">
+  <div class="relative">
+    <a href="Renta%20de%20Local%20Plaza%20Gdl.jpg" target="_blank">
+      <img src="Renta%20de%20Local%20Plaza%20Gdl.jpg" alt="Locales Comerciales Plaza Guadalajara" class="rounded w-full object-cover hover:shadow-lg transition duration-300">
+      <div class="absolute bottom-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded shadow">Ver ficha técnica 📄</div>
+    </a>
+  </div>
+  <div class="mt-2 text-right">
+    <a href="Renta%20de%20Local%20Plaza%20Gdl.jpg" download class="text-blue-600 underline text-sm">Descargar presentación PDF</a>
+  </div>
+</div>
             <div class="mt-4">
               <button onclick="document.getElementById('modal').classList.remove('hidden')" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Agendar Cita</button>
             </div>
@@ -41,13 +46,18 @@
           <div class="p-4">
   <h3 class="font-bold text-xl mb-2">Terreno en Renta - Centroamérica, Guadalupe NL</h3>
   <p class="text-sm mb-2">1200 m² en Av. Antiguo Camino a Huinalá, casi esquina con Av. Guadalajara. Disponible todo o en partes.</p>
-  <div class="grid grid-cols-2 gap-2 mt-4">
-    <img src="https://via.placeholder.com/200x150?text=Vista+1" alt="Vista 1" class="rounded">
-    <img src="https://via.placeholder.com/200x150?text=Vista+2" alt="Vista 2" class="rounded">
-    <img src="https://via.placeholder.com/200x150?text=Vista+3" alt="Vista 3" class="rounded">
-    <img src="https://via.placeholder.com/200x150?text=Vista+4" alt="Vista 4" class="rounded">
+  <div class="mt-4">
+  <div class="relative">
+  <a href="Terr%20Comercial%20Ant.%20Camino%20a%20Huinala%20Esq%20Av%20Gdj%20Gpe%20NL%201200m2.pdf" target="_blank">
+    <img src="https://docs.google.com/viewer?url=https://example.com/Terr%20Comercial%20Ant.%20Camino%20a%20Huinala%20Esq%20Av%20Gdj%20Gpe%20NL%201200m2.pdf&embedded=true" alt="Miniatura Terreno PDF" class="rounded w-full object-cover hover:shadow-lg transition duration-300">
+    <div class="absolute bottom-2 right-2 bg-red-600 text-white text-xs px-2 py-1 rounded shadow">Ver ficha técnica 📄</div>
+  </a>
+</div>
+  <div class="mt-2 text-right">
+    <a href="Terr%20Comercial%20Ant.%20Camino%20a%20Huinala%20Esq%20Av%20Gdj%20Gpe%20NL%201200m2.pdf" download class="text-blue-600 underline text-sm">Descargar presentación PDF</a>
   </div>
-  <p class="text-blue-700 font-semibold mt-4">$50 MXN / m²</p>
+</div>
+<p class="text-blue-700 font-semibold mt-4">$50 MXN / m²</p>
   <div class="mt-4">
     <button onclick="document.getElementById('modal').classList.remove('hidden')" class="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Agendar Cita</button>
   </div>
@@ -58,7 +68,7 @@
 
     <section class="bg-white rounded-xl p-6 shadow-md mb-10">
       <h2 class="text-xl font-semibold mb-4">Contáctanos</h2>
-      <form action="https://formspree.io/f/mbjndvpp" method="POST" class="grid gap-4">
+      <form id="contact-form" action="https://formspree.io/f/mbjndvpp" method="POST" class="grid gap-4">
         <input type="text" name="nombre" placeholder="Nombre" class="border p-2 rounded" required>
         <input type="email" name="email" placeholder="Correo electrónico" class="border p-2 rounded" required>
         <textarea name="mensaje" placeholder="Mensaje" rows="4" class="border p-2 rounded" required></textarea>
@@ -75,7 +85,7 @@
   <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
   <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
     <h2 class="text-xl font-bold mb-4">Agendar Cita</h2>
-    <form action="https://formspree.io/f/mbjndvpp" method="POST" class="grid gap-4">
+    <form id="modal-form" action="https://formspree.io/f/mbjndvpp" method="POST" class="grid gap-4">
       <input type="text" name="nombre" placeholder="Nombre" class="border p-2 rounded" required>
       <input type="email" name="email" placeholder="Correo electrónico" class="border p-2 rounded" required>
       <textarea name="mensaje" placeholder="Mensaje" rows="4" class="border p-2 rounded" required></textarea>
@@ -99,7 +109,10 @@
 </div>
 
 <script>
-  document.querySelectorAll("form").forEach(form => {
+  function handleForm(formId, hideModal = false) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const formData = new FormData(form);
@@ -112,7 +125,9 @@
       }).then(response => {
         if (response.ok) {
           form.reset();
-          document.getElementById("modal")?.classList.add("hidden");
+          if (hideModal) {
+            document.getElementById("modal")?.classList.add("hidden");
+          }
           const notification = document.getElementById("notification");
           notification.classList.remove("hidden");
           setTimeout(() => notification.classList.add("hidden"), 4000);
@@ -121,7 +136,10 @@
         }
       });
     });
-  });
+  }
+
+  handleForm("contact-form");
+  handleForm("modal-form", true);
 </script>
 </body>
 </html>
