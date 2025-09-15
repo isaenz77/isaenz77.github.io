@@ -3,14 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inmobiliaria Chapa Inmuebles</title>
+  <title>Inmobiliaria Cavazos Real Estate</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <style>
+    .logo-text {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      color: white;
+    }
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-  <header class="bg-blue-700 text-white py-6 shadow-md">
-    <div class="container mx-auto px-4">
-      <h1 class="text-3xl font-bold">Inmobiliaria Chapa Inmuebles</h1>
-      <p class="text-sm">Compra, Venta y Renta de Inmuebles en el Área Metropolitana de N.L. | Informes: 8115538517</p>
+  <header class="bg-blue-700 text-white py-6 shadow-md flex items-center">
+    <div class="container mx-auto px-4 flex items-center">
+      <!-- Logo generado -->
+      <img src="logo.png" alt="Logo Cavazos Real Estate" class="w-12 h-12 mr-4 rounded-full shadow-md">
+      <div>
+        <h1 class="text-3xl font-bold">Inmobiliaria Cavazos Real Estate</h1>
+        <p class="text-sm">Compra, Venta y Renta de Inmuebles en el Área Metropolitana de N.L. | Informes: 8113264151</p>
+      </div>
     </div>
   </header>
 
@@ -70,6 +97,7 @@
       <h2 class="text-xl font-semibold mb-4">Contáctanos</h2>
       <form id="contact-form" action="https://formsubmit.co/inmobiliaria@empacados.com" method="POST" class="grid gap-4">
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://isaenz77.github.io/gracias.html">
         <input type="text" name="nombre" placeholder="Nombre" class="border p-2 rounded" required>
         <input type="email" name="email" placeholder="Correo electrónico" class="border p-2 rounded" required>
         <textarea name="mensaje" placeholder="Mensaje" rows="4" class="border p-2 rounded" required></textarea>
@@ -88,6 +116,7 @@
     <h2 class="text-xl font-bold mb-4">Agendar Cita</h2>
     <form id="modal-form" action="https://formsubmit.co/inmobiliaria@empacados.com" method="POST" class="grid gap-4">
       <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://isaenz77.github.io/gracias.html">
       <input type="text" name="nombre" placeholder="Nombre" class="border p-2 rounded" required>
       <input type="email" name="email" placeholder="Correo electrónico" class="border p-2 rounded" required>
       <textarea name="mensaje" placeholder="Mensaje" rows="4" class="border p-2 rounded" required></textarea>
@@ -101,47 +130,8 @@
 </main>
 
   <footer class="bg-gray-800 text-white text-center py-4">
-    <p>&copy; 2025 Inmobiliaria Chapa Inmuebles. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Inmobiliaria Cavazos Real Estate. Todos los derechos reservados.</p>
   </footer>
-<div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-2 hidden z-50">
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-  </svg>
-  <span>Mensaje enviado con éxito. ¡Gracias por contactarnos!</span>
-</div>
 
-<script>
-  function handleForm(formId, hideModal = false) {
-    const form = document.getElementById(formId);
-    if (!form) return;
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          form.reset();
-          if (hideModal) {
-            document.getElementById("modal")?.classList.add("hidden");
-          }
-          const notification = document.getElementById("notification");
-          notification.classList.remove("hidden");
-          setTimeout(() => notification.classList.add("hidden"), 4000);
-        } else {
-          alert("Hubo un problema al enviar el mensaje. Intenta de nuevo.");
-        }
-      });
-    });
-  }
-
-  handleForm("contact-form");
-  handleForm("modal-form", true);
-</script>
 </body>
 </html>
